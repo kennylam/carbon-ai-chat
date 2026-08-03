@@ -63,7 +63,7 @@
     "@carbon/icons": "^11.53.0",
     "@carbon/styles": "^1.106.0",
     "@carbon/utilities": "^0.21.0",
-    "@carbon/web-components": "^2.58.1",
+    "@carbon/web-components": "file:../../carbon-web-components-2.59.0.tgz",
     "@codemirror/autocomplete": "^6.20.0",
     "@codemirror/commands": "^6.10.1",
     "@codemirror/lang-angular": "^0.1.4",
