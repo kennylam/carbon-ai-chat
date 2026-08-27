@@ -22,9 +22,12 @@ export default defineConfig({
   // anything that fails twice in a row is a real bug, not a race. Local
   // runs get 0 retries so devs see flakes immediately.
   retries: process.env.CI ? 1 : 0,
-  // automatically start your dev server before running tests:
+  // Serve the production build. Vite's `@vite/client` injects inline <style>
+  // tags that trip the test-time CSP (`style-src 'self'`); preview has no
+  // client and matches what GitHub Pages serves.
   webServer: {
-    command: 'PORT=3001 npm run start', // or whatever starts localhost
+    command:
+      'npm run build && npm run preview -- --host 127.0.0.1 --port 3001 --strictPort',
     port: 3001,
     timeout: 120 * 1000, // wait up to 2m for the server
     reuseExistingServer: !process.env.CI,
